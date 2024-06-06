@@ -11,6 +11,7 @@
     <!-- pemanggilan data dari vue js dengan div -->
     <!-- jangan lupa dengan memberikan id yang sama dengan vue js yang sudah dibuat -->
     <div id="app">
+        <img class="img-fluid" :src="image" :alt="description"> <!-- melakukan v-bind pada img -->
         <h2>{{name}}</h2>
         <p>{{description}}</p>
         <div class="h3">Rp. {{ price }}</div>
