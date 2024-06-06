@@ -107,6 +107,11 @@ var app = new Vue({
             this.products = data; //mengambil data dan mengirimkan ke products
         });
     },
+    filters: {
+       currencyFormat: function(value){
+        return 'Rp. ' + Number.parseFloat(value).toFixed(3);
+       } 
+    },
     computed:{ //menambahkan computed untuk melakukan manipulasi pada sliderState yang ada di HTML
         sliderState: function(){
             return this.style.sliderStatus ? 'd-flex' : 'd-none';
