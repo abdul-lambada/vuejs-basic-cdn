@@ -101,7 +101,7 @@ var app = new Vue({
         }
     },
     mounted: function(){
-        fetch('https://hplussport.com/api/products/order/price')
+        fetch('https://hplussport.com/api/products/order/price') //API Prodact
         .then(Response => Response.json()) //merubah api menjadi json dengan response
         .then(data => {
             this.products = data; //mengambil data dan mengirimkan ke products

@@ -34,9 +34,35 @@
           >
             <i class="fas fa-dollar-sign"></i>
           </button>
-          <div class="ml-2" v-if="cart.length > 0">
-            <b><i class="fas fa-shopping-cart"></i> Cart:</b>
-            <span class="badge badge-pill badge-success">{{cart.length}}</span>
+          <div class="ml-2">
+            <button
+              class="btn btn-success btn-sm dropdown-toggle"
+              id="dropdownCart"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <b><i class="fas fa-shopping-cart"></i> Cart:</b>
+              <span class="badge badge-pill badge-success"
+                >{{cart.length}}</span
+              >
+            </button>
+            <div
+              class="dropdown-menu dropdown-menu-right"
+              aria-labelledby="dropdownCart"
+            >
+              <div v-for="(item, index) in cart" :key="index">
+                <div class="dropdown-item-text text-nowrap text-right">
+                  <span
+                    class="badge badge-pill badge-warning align-text-top mr-1"
+                  >
+                    {{item.qty}}
+                  </span>
+                  {{item.name}}
+                  <b>{{item.price | currencyFormat}}</b>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -89,7 +115,11 @@
             </button>
           </div>
           <div class="col-sm-4">
-            <img :src="item.image" :alt="item.image_title" class="img-fluid d-blok" >
+            <img
+              :src="item.image"
+              :alt="item.image_title"
+              class="img-fluid d-blok"
+            />
             <!-- melakukan v-bind pada img -->
           </div>
           <div class="col">
