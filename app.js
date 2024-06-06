@@ -95,7 +95,9 @@ var app = new Vue({
         products: null,
         cart: [],
         style: {
-            label: ['font-weight-bold', 'mr-2']
+            label: ['font-weight-bold', 'mr-2'],
+            inputWidth: 60,
+            sliderStatus: false
         }
     },
     mounted: function(){
@@ -104,6 +106,11 @@ var app = new Vue({
         .then(data => {
             this.products = data; //mengambil data dan mengirimkan ke products
         });
+    },
+    computed:{ //menambahkan computed untuk melakukan manipulasi pada sliderState yang ada di HTML
+        sliderState: function(){
+            return this.style.sliderStatus ? 'd-flex' : 'd-none';
+        }
     },
     methods: { //methods bersifat proverti
         addItem: function(product){
