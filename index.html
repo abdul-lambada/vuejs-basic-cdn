@@ -15,14 +15,22 @@
     <!-- pemanggilan data dari vue js dengan div -->
     <!-- jangan lupa dengan memberikan id yang sama dengan vue js yang sudah dibuat -->
     <div class="container" id="app">
-      <div class="row d-flex mb-3 align-items-center" v-for="item in products"><!-- Melakukan v-for/Perulangan -->
-        <div class="col-sm-4">
-          <img :src="item.image" :alt="image_title" class="img-fluid d-block" /> <!-- melakukan v-bind pada img -->
-        </div>
-        <div class="col">
-          <h3 class="text-info">{{item.name}}</h3>
-          <p class="mb-0">{{item.description}}</p>
-          <div class="h5 float-right">Rp. {{item.price}}</div>
+      <div class="row d-flex mb-3 align-items-center" v-for="item in products">
+        <!-- Melakukan v-for/Perulangan -->
+        <div v-if="item.price <= Number(maximum)">
+          <div class="col-sm-4">
+            <img
+              :src="item.image"
+              :alt="item.image_title"
+              class="img-fluid d-block"
+            />
+            <!-- melakukan v-bind pada img -->
+          </div>
+          <div class="col">
+            <h3 class="text-info">{{item.name}}</h3>
+            <p class="mb-0">{{item.description}}</p>
+            <div class="h5 float-right">Rp. {{item.price}}</div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
 // Membuat variabel data json
 var dataProduct = {
+    // Menambahkan properti baru
+    maximum: 50,
     products: [
         {
             "id":"532",
