@@ -15,6 +15,18 @@
     <!-- pemanggilan data dari vue js dengan div -->
     <!-- jangan lupa dengan memberikan id yang sama dengan vue js yang sudah dibuat -->
     <div class="container" id="app">
+      <div class="form-inline mr-auto">
+        <label for="" class="font-weight-bold mr-2">Max</label>
+        <input type="number" class="form-control w-25" v-model="maximum" />
+        <!--menambahkan v-model dengan nilai maximum -->
+      </div>
+      <input
+        type="range"
+        class="custom-range"
+        min="0"
+        max="200"
+        v-model="maximum"
+      />
       <div class="row d-flex mb-3 align-items-center" v-for="item in products">
         <!-- Melakukan v-for/Perulangan -->
         <div v-if="item.price <= Number(maximum)">
