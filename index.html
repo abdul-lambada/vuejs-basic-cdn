@@ -42,10 +42,12 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <b><i class="fas fa-shopping-cart"></i> Cart:</b>
+              <b>Keranjang :</b>
               <span class="badge badge-pill badge-success"
-                >{{cart.length}}</span
+                >{{cartQty}}</span
               >
+              <i class="fas fa-shopping-cart mx-2"></i>
+              {{cartTotal | currencyFormat}}
             </button>
             <div
               class="dropdown-menu dropdown-menu-right"
