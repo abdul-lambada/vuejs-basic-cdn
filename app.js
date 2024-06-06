@@ -92,13 +92,19 @@ var app = new Vue({
     el: '#app',
     data: {
         maximum: 50,
-        products: null
+        products: null,
+        cart: []
     },
     mounted: function(){
         fetch('https://hplussport.com/api/products/order/price')
         .then(Response => Response.json()) //merubah api menjadi json dengan response
         .then(data => {
             this.products = data; //mengambil data dan mengirimkan ke products
-        })
+        });
+    },
+    methods: { //methods bersifat proverti
+        addItem: function(product){
+            this.cart.push(product);
+        }
     }
 });
