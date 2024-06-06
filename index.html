@@ -41,7 +41,7 @@
         </div>
       </nav>
       <br />
-      <h1>VueShop</h1>
+      <h1><b>Vue Shop</b></h1>
       <transition
         name="custom"
         enter-active-class="animated fadeInDown"
@@ -71,14 +71,16 @@
       <transition-group
         name="fade"
         tag="div"
-        enter-active-class="animated fadeInRight"
-        leave-active-class="animated fadeOutRight"
+        @beforeEnter="before"
+        @enter="enter"
+        @leave="leave"
       >
         <div
-          class="row d-flex mt-3 align-items-center"
+          class="row d-none mt-3 align-items-center"
           v-for="(item, index) in products"
           :key="item.id"
           v-if="item.price <= Number(maximum)"
+          :data-index="index"
         >
           <!-- Melakukan v-for/Perulangan -->
           <div class="col-1 m-auto">
