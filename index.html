@@ -15,6 +15,7 @@
       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="app.css">
     <title>VueJs Basic</title>
   </head>
   <body>
@@ -23,34 +24,41 @@
     <div class="container" id="app">
       <nav class="navbar navbar-light bg-light">
         <div class="navbar-text ml-auto d-flex">
-          <button class="btn btn-sm btn-outline-success" @click="style.sliderStatus = !style.sliderStatus">
+          <button
+            class="btn btn-sm btn-outline-success"
+            @click="style.sliderStatus = !style.sliderStatus"
+          >
             <i class="fas fa-dollar-sign"></i>
           </button>
           <div class="ml-2" v-if="cart.length > 0">
-            <b><i class='fas fa-shopping-cart'></i> Cart:</b>
+            <b><i class="fas fa-shopping-cart"></i> Cart:</b>
             <span class="badge badge-pill badge-success">{{cart.length}}</span>
           </div>
         </div>
       </nav>
       <br />
       <h1>VueShop</h1>
-      <div class="align-items-center" :class="sliderState">
-        <label for="" :class="style.label">Max</label>
-        <input
-          type="number"
-          class="form-control mx-2"
-          :style="{'width': style.inputWidth + 'px', 'text-align': 'center'}"
-          v-model="maximum"
-        />
-        <!--menambahkan v-model dengan nilai maximum -->
-        <input
-          type="range"
-          class="custom-range"
-          min="0"
-          max="200"
-          v-model="maximum"
-        />
-      </div>
+      <transition name="fade">
+        <div v-if="style.sliderStatus">
+          <div class="align-items-center" :class="sliderState">
+            <label for="" :class="style.label">Max</label>
+            <input
+              type="number"
+              class="form-control mx-2"
+              :style="{'width': style.inputWidth + 'px', 'text-align': 'center'}"
+              v-model="maximum"
+            />
+            <!--menambahkan v-model dengan nilai maximum -->
+            <input
+              type="range"
+              class="custom-range"
+              min="0"
+              max="200"
+              v-model="maximum"
+            />
+          </div>
+        </div>
+      </transition>
 
       <div
         class="row d-flex mt-3 align-items-center"
@@ -59,7 +67,9 @@
       >
         <!-- Melakukan v-for/Perulangan -->
         <div class="col-1 m-auto">
-          <button class="btn btn-info" v-on:click="addItem(item)"><i class="fa fa-shopping-basket"></i></button>
+          <button class="btn btn-info" v-on:click="addItem(item)">
+            <i class="fa fa-shopping-basket"></i>
+          </button>
         </div>
         <div class="col-sm-4">
           <img
